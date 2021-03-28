@@ -14,9 +14,8 @@ int  main() {
         zmq::message_t message;
         reqsocket.send(zmq::str_buffer("HELLO"), zmq::send_flags::none);
         reqsocket.recv(message, zmq::recv_flags::none);
-        std::istringstream iss(static_cast<char*>(message.data())); std::string str;
-        iss >> str;
-        std::cout << str.substr(0,5) << " Recieved from server : " << std::endl;
+        std::string str = message.to_string();
+        std::cout << str << " Recieved from server : " << std::endl;
     }
     
     return 0;

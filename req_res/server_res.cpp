@@ -12,7 +12,8 @@ int main() {
     while (true) {
         zmq::message_t message_from_client;
         server_socket.recv(message_from_client, zmq::recv_flags::none);
-        std::cout << static_cast<char*>(message_from_client.data()) << " Recieved from Client: " << std::endl;
+        std::string str = message_from_client.to_string();
+        std::cout << str << " Recieved from client: " << std::endl;
         zmq_sleep(1);
         server_socket.send(zmq::str_buffer("WORLD"), zmq::send_flags::none);
     }

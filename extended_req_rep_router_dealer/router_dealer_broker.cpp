@@ -1,8 +1,9 @@
 #include <iostream>
-#include <zmq.hpp>
 #include <future>
 #include <sstream>
+#include <zmq.hpp>
 #include <zmq_addon.hpp>
+#define ZMQ_BUILD_DRAFT_API 1
 
 int main (int argc, char *argv[])  {
 
